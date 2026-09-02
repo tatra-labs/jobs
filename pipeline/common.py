@@ -104,3 +104,77 @@ FIPS_TO_ABBR = {fips: abbr for abbr, (fips, _name) in STATES.items()}
 
 # Years covered by the whole project. OEWS is published for May of each year.
 YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024]
+
+
+# ---------------------------------------------------------------------------
+# bls.gov downloads
+#
+# www.bls.gov sits behind an Akamai bot manager that answers EVERY plain HTTP
+# client (httpx, curl, requests, even a headless Chromium) with 403 and a 1,325
+# byte block page. A *headed* Chromium passes. So anything from bls.gov has to
+# come through fetch_bls() rather than fetch(); download.bls.gov is blocked the
+# same way. Shared helper - added for pipeline/build_crosswalk.py, reusable by
+# any script that needs OEWS/SOC/OOH files.
+# ---------------------------------------------------------------------------
+_BLS_BROWSER = {"ctx": None, "page": None, "pw": None, "browser": None, "warm": set()}
+
+
+def _bls_browser():
+    """Lazily open one headed Chromium and reuse it for every BLS download."""
+    if _BLS_BROWSER["ctx"] is None:
+        from playwright.sync_api import sync_playwright
+
+        pw = sync_playwright().start()
+        browser = pw.chromium.launch(headless=False)
+        ctx = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+            ),
+            accept_downloads=True,
+        )
+        _BLS_BROWSER.update(pw=pw, browser=browser, ctx=ctx, page=ctx.new_page())
+    return _BLS_BROWSER
+
+
+def close_bls_browser():
+    b = _BLS_BROWSER
+    if b["browser"] is not None:
+        b["browser"].close()
+        b["pw"].stop()
+        b.update(ctx=None, page=None, pw=None, browser=None, warm=set())
+
+
+def fetch_bls(url, dest, referer=None, force=False, timeout=180_000):
+    """Download a bls.gov file through a real browser, caching on disk like fetch().
+
+    Two strategies, in order: the browser context's request API (fast, keeps
+    cookies), then a synthetic <a download> click, which is the only thing that
+    works for some paths (e.g. /soc/2018/*.xlsx).
+    """
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and dest.stat().st_size > 0 and not force:
+        return dest
+    b = _bls_browser()
+    ref = referer or url.rsplit("/", 1)[0] + "/"
+    if ref not in b["warm"]:
+        b["page"].goto(ref, wait_until="domcontentloaded", timeout=90_000)
+        b["warm"].add(ref)
+    tmp = dest.with_suffix(dest.suffix + ".part")
+    r = b["ctx"].request.get(url, headers={"Referer": ref}, timeout=timeout)
+    if r.status == 200 and len(r.body()) > 2048:
+        tmp.write_bytes(r.body())
+    else:
+        with b["page"].expect_download(timeout=timeout) as info:
+            b["page"].evaluate(
+                "u => { const a = document.createElement('a'); a.href = u;"
+                " a.download = ''; document.body.appendChild(a); a.click(); }",
+                url,
+            )
+        info.value.save_as(str(tmp))
+    if tmp.stat().st_size == 0:
+        tmp.unlink(missing_ok=True)
+        raise RuntimeError(f"empty download from {url}")
+    tmp.replace(dest)
+    return dest
