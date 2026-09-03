@@ -21,3 +21,6 @@ embeddings.json
 
 # macOS
 .DS_Store
+
+# Raw upstream downloads (large, reproducible via pipeline/fetch_*.py)
+raw/

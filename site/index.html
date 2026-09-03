@@ -209,7 +209,7 @@ canvas#canvas {
 <div id="wrapper">
 <div id="header">
   <div class="intro">
-    <h1>US Job Market Visualizer <a href="https://github.com/karpathy/jobs">GitHub</a></h1>
+    <h1>US Job Market Visualizer <a href="explore.html">Explore the data &rarr;</a> <a href="https://github.com/karpathy/jobs">GitHub</a></h1>
     <p>This is a research tool that visualizes <b>342 occupations</b> from the <a href="https://www.bls.gov/ooh/">Bureau of Labor Statistics Occupational Outlook Handbook</a>, covering <b>143M jobs</b> across the US economy. Each rectangle's <b>area</b> is proportional to total employment. <b>Color</b> shows the selected metric &mdash; toggle between BLS projected growth outlook, median pay, education requirements, and AI exposure. Click any tile to view its full BLS page. This is not a report, a paper, or a serious economic publication &mdash; it is a development tool for exploring BLS data visually.</p>
     <p><b>LLM-powered coloring:</b> The <a href="https://github.com/karpathy/jobs">source code</a> includes scrapers, parsers, and a pipeline for writing custom LLM prompts to score and color occupations by any criteria. You write a prompt, the LLM scores each occupation, and the treemap colors accordingly. The "Digital AI Exposure" option is one example &mdash; it estimates how much current AI (which is primarily digital) will reshape each occupation. But you could write a different prompt for any question &mdash; e.g. exposure to humanoid robotics, offshoring risk, climate impact &mdash; and re-run the pipeline to get a different coloring.</p>
     <details>
@@ -439,6 +439,9 @@ function worstAspect(row, rowSum, side, totalArea, availableExtent) {
 let data = [];
 let rects = [];
 let hovered = null;
+// index.html#<ooh-slug> — the deep link the Explore page's map view sends here.
+// Highlights that occupation's tile until the pointer touches the treemap.
+let focusSlug = null;
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let dpr = window.devicePixelRatio || 1;
@@ -472,7 +475,7 @@ function draw() {
   ctx.fillStyle = "#0a0a0f";
   ctx.fillRect(0, 0, canvas.width / dpr, canvas.height / dpr);
   for (const r of rects) {
-    const isHovered = r === hovered;
+    const isHovered = r === hovered || (focusSlug != null && r.slug === focusSlug);
     const g = GAP / 2, rx = r.rx + g, ry = r.ry + g, rw = r.rw - g * 2, rh = r.rh - g * 2;
     if (rw <= 0 || rh <= 0) continue;
     ctx.fillStyle = tileColorCSS(r, isHovered ? 0.8 : 0.5);
@@ -850,6 +853,7 @@ function updateExposureStats(totalJobs) {
 
 canvas.addEventListener("mousemove", (e) => {
   const hit = hitTest(e.clientX, e.clientY);
+  if (focusSlug != null) { focusSlug = null; draw(); }
   if (hit !== hovered) { hovered = hit; draw(); }
   if (hovered) { showTooltip(hovered, e.clientX, e.clientY); canvas.style.cursor = "pointer"; }
   else { hideTooltip(); canvas.style.cursor = "default"; }
@@ -857,6 +861,15 @@ canvas.addEventListener("mousemove", (e) => {
 canvas.addEventListener("click", (e) => { const hit = hitTest(e.clientX, e.clientY); if (hit && hit.url) window.open(hit.url, "_blank"); });
 canvas.addEventListener("mouseleave", () => { hovered = null; hideTooltip(); draw(); });
 function resize() { dpr = window.devicePixelRatio || 1; layout(); draw(); }
+
+// ── Deep link: explore.html links back here as index.html#<slug> ───────
+function focusFromHash(scroll) {
+  const slug = decodeURIComponent((location.hash || "").replace(/^#/, ""));
+  focusSlug = slug && rects.some(r => r.slug === slug) ? slug : null;
+  draw();
+  if (focusSlug && scroll) canvas.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+window.addEventListener("hashchange", () => focusFromHash(true));
 
 // ── Legend gradient ────────────────────────────────────────────────────
 
@@ -904,6 +917,7 @@ fetch("data.json")
     updateStats();
     drawGradientLegend();
     resize();
+    focusFromHash(true);
   });
 
 window.addEventListener("resize", resize);

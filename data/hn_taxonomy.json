@@ -1,0 +1,1770 @@
+{
+ "ai_agents": {
+  "label": "AI agents",
+  "category": "ai",
+  "patterns": [
+   "\\bai\\s+agents?\\b",
+   "\\bagentic\\b",
+   "\\bmulti[\\s-]agent\\b",
+   "\\bmcp\\b(?=.{0,60}\\b(?:server|protocol|context|tool|claude|llm)\\b)",
+   "\\bcursor\\b(?=.{0,60}\\b(?:ai|code|copilot|claude|agent)\\b)",
+   "\\bcopilot\\b",
+   "\\bclaude\\s+code\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "airflow": {
+  "label": "Airflow",
+  "category": "data",
+  "patterns": [
+   "\\bairflow\\b",
+   "\\bdagster\\b",
+   "\\bprefect\\b(?=.{0,40}\\b(?:pipeline|orchestrat|data)\\b)",
+   "\\bluigi\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "android": {
+  "label": "Android",
+  "category": "platform",
+  "patterns": [
+   "\\bandroid\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "angular": {
+  "label": "Angular",
+  "category": "frontend",
+  "patterns": [
+   "\\bangular(?:js)?\\b"
+  ],
+  "anti_patterns": [
+   "\\bangular\\s+(?:momentum|velocity|shape)\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "ansible": {
+  "label": "Ansible",
+  "category": "infra",
+  "patterns": [
+   "\\bansible\\b",
+   "\\bpuppet\\b",
+   "\\bchef\\b(?=.{0,40}\\b(?:puppet|ansible|config|infra|devops)\\b)",
+   "\\bsaltstack\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "assembly": {
+  "label": "Assembly",
+  "category": "language",
+  "patterns": [
+   "\\bassembly\\s+(?:language|code|programming)\\b",
+   "\\bx86\\s+asm\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "aws": {
+  "label": "AWS",
+  "category": "infra",
+  "patterns": [
+   "\\baws\\b",
+   "\\bamazon\\s+web\\s+services\\b",
+   "\\bec2\\b",
+   "\\bs3\\b",
+   "\\brds\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "azure": {
+  "label": "Azure",
+  "category": "infra",
+  "patterns": [
+   "\\bazure\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "bash": {
+  "label": "Bash/Shell",
+  "category": "language",
+  "patterns": [
+   "\\bbash\\b",
+   "\\bshell\\s+script",
+   "\\bzsh\\b",
+   "\\bposix\\s+shell\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "bigquery": {
+  "label": "BigQuery",
+  "category": "data",
+  "patterns": [
+   "\\bbig\\s?query\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "blockchain": {
+  "label": "Blockchain",
+  "category": "other",
+  "patterns": [
+   "\\bblockchain\\b",
+   "\\bethereum\\b",
+   "\\bbitcoin\\b",
+   "\\bsmart\\s+contracts?\\b",
+   "\\bdefi\\b",
+   "\\bzk[\\s-]?(?:snark|rollup|proof)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "c": {
+  "label": "C",
+  "category": "language",
+  "patterns": [
+   "(?-i:(?<![\\w+#.])C(?![\\w+#.]))",
+   "\\bansi\\s+c\\b",
+   "\\bembedded\\s+c\\b",
+   "\\bc99\\b",
+   "\\bc11\\b",
+   "\\bc\\s+programming\\b"
+  ],
+  "anti_patterns": [
+   "\\bc[\\s-]*level\\b",
+   "\\bc[\\s-]*suite\\b",
+   "\\bseries\\s+c\\b",
+   "\\bc\\s*corp",
+   "\\bvitamin\\s+c\\b",
+   "\\bc\\+\\+",
+   "\\bc#",
+   "\\bc\\.\\s*[a-z]",
+   "\\bplan\\s+c\\b",
+   "\\boption\\s+c\\b",
+   "\\bc\\s*/\\s*c\\+\\+",
+   "objective[\\s-]?c\\b",
+   "\\bobj[\\s-]?c\\b",
+   "\\bobjc\\b",
+   "\\bc[\\s-]*corp\\b",
+   "\\bhep\\s*c\\b",
+   "\\bsection\\s+c\\b",
+   "\\bpart\\s+c\\b",
+   "\\bexhibit\\s+c\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "cassandra": {
+  "label": "Cassandra/DynamoDB",
+  "category": "data",
+  "patterns": [
+   "\\bcassandra\\b",
+   "\\bscylla(?:db)?\\b",
+   "\\bdynamo\\s?db\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "cicd": {
+  "label": "CI/CD",
+  "category": "practice",
+  "patterns": [
+   "\\bci\\s*/\\s*cd\\b",
+   "\\bcicd\\b",
+   "\\bcontinuous\\s+(?:integration|delivery|deployment)\\b",
+   "\\bgithub\\s+actions\\b",
+   "\\bjenkins\\b",
+   "\\bgitlab\\s+ci\\b",
+   "\\bcircleci\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "clickhouse": {
+  "label": "ClickHouse",
+  "category": "data",
+  "patterns": [
+   "\\bclick\\s?house\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "clojure": {
+  "label": "Clojure",
+  "category": "language",
+  "patterns": [
+   "\\bclojure(?:script)?\\b",
+   "\\bclj\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "computer_vision": {
+  "label": "Computer Vision",
+  "category": "ai",
+  "patterns": [
+   "\\bcomputer\\s+vision\\b",
+   "\\bopencv\\b",
+   "\\bimage\\s+recognition\\b",
+   "\\bobject\\s+detection\\b",
+   "\\bocr\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "cpp": {
+  "label": "C++",
+  "category": "language",
+  "patterns": [
+   "c\\+\\+",
+   "\\bcplusplus\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "csharp": {
+  "label": "C#",
+  "category": "language",
+  "patterns": [
+   "c#",
+   "\\bc[\\s-]?sharp\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "css": {
+  "label": "CSS/HTML",
+  "category": "frontend",
+  "patterns": [
+   "\\bcss\\b",
+   "\\bhtml5?\\b",
+   "\\bscss\\b",
+   "\\bsass\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "cuda": {
+  "label": "CUDA / GPU",
+  "category": "ai",
+  "patterns": [
+   "\\bcuda\\b",
+   "\\bgpu\\s+(?:kernel|programming|cluster|compute|optimi)",
+   "\\btriton\\b",
+   "\\bnvidia\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "dart": {
+  "label": "Dart",
+  "category": "language",
+  "patterns": [
+   "(?-i:\\bDart\\b)"
+  ],
+  "anti_patterns": [
+   "\\bdart\\s?board\\b",
+   "\\bdarts\\b",
+   "\\bdart\\s+(?:throw|around|out|in\\b)"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "data_science": {
+  "label": "Data science stack",
+  "category": "ai",
+  "patterns": [
+   "\\bpandas\\b",
+   "\\bnumpy\\b",
+   "\\bscikit[\\s-]?learn\\b",
+   "\\bsklearn\\b",
+   "\\bjupyter\\b",
+   "\\bmatplotlib\\b",
+   "\\bstatistic(?:s|al)\\s+model"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "databricks": {
+  "label": "Databricks",
+  "category": "data",
+  "patterns": [
+   "\\bdatabricks\\b",
+   "\\bdelta\\s+lake\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "dbt": {
+  "label": "dbt",
+  "category": "data",
+  "patterns": [
+   "\\bdbt\\b"
+  ],
+  "anti_patterns": [
+   "\\bdbt\\s+therapy\\b",
+   "\\bdialectical\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "deep_learning": {
+  "label": "Deep Learning",
+  "category": "ai",
+  "patterns": [
+   "\\bdeep\\s+learning\\b",
+   "\\bneural\\s+net",
+   "\\bdnn\\b",
+   "\\bcnn\\b(?!\\s*news)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "django": {
+  "label": "Django",
+  "category": "framework",
+  "patterns": [
+   "\\bdjango\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "docker": {
+  "label": "Docker",
+  "category": "infra",
+  "patterns": [
+   "\\bdocker\\b",
+   "\\bcontaineri[sz]",
+   "\\bpodman\\b",
+   "\\bdocker[\\s-]?compose\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "dotnet": {
+  "label": ".NET",
+  "category": "framework",
+  "patterns": [
+   "\\.net\\b",
+   "\\bdotnet\\b",
+   "\\basp\\.net\\b",
+   "\\bnet\\s?core\\b",
+   "\\bblazor\\b"
+  ],
+  "anti_patterns": [
+   "\\b(?:www|github|gitlab|io|com|org)\\.net\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "duckdb": {
+  "label": "DuckDB",
+  "category": "data",
+  "patterns": [
+   "\\bduck\\s?db\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "elastic_cloud_other": {
+  "label": "Cloudflare/CDN/edge",
+  "category": "infra",
+  "patterns": [
+   "\\bcloudflare\\b",
+   "\\bfastly\\b",
+   "\\bcdn\\b",
+   "\\bedge\\s+comput"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "elasticsearch": {
+  "label": "Elasticsearch",
+  "category": "data",
+  "patterns": [
+   "\\belastic\\s?search\\b",
+   "\\bopensearch\\b",
+   "\\belk\\s+stack\\b",
+   "\\blucene\\b",
+   "\\bsolr\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "elixir": {
+  "label": "Elixir",
+  "category": "language",
+  "patterns": [
+   "\\belixir\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "embedded": {
+  "label": "Embedded / firmware",
+  "category": "platform",
+  "patterns": [
+   "\\bembedded\\b",
+   "\\bfirmware\\b",
+   "\\brtos\\b",
+   "\\bmicrocontroller\\b",
+   "\\bfpga\\b",
+   "\\bverilog\\b",
+   "\\bvhdl\\b",
+   "\\bbare[\\s-]metal\\b",
+   "\\bstm32\\b",
+   "\\barduino\\b",
+   "\\braspberry\\s?pi\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "erlang": {
+  "label": "Erlang",
+  "category": "language",
+  "patterns": [
+   "\\berlang\\b",
+   "\\botp\\b(?=.{0,30}\\berlang\\b)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "etl": {
+  "label": "ETL/Data Warehouse",
+  "category": "data",
+  "patterns": [
+   "\\betl\\b",
+   "\\belt\\s+pipeline",
+   "\\bdata\\s+warehous",
+   "\\bdata\\s+lake\\b",
+   "\\bdata\\s+pipelines?\\b",
+   "\\bredshift\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "express": {
+  "label": "Express.js",
+  "category": "framework",
+  "patterns": [
+   "\\bexpress\\.?js\\b",
+   "\\bexpressjs\\b",
+   "(?-i:\\bExpress\\b)"
+  ],
+  "anti_patterns": [
+   "\\bexpress\\s+(?:yourself|your|interest|our|their|his|her|the|an?|delivery|shipping|lane|written|in\\s+writing|opinions?|ideas?|enthusiasm|excitement)\\b",
+   "\\b(?:to|please|can|freely|clearly|will|would|we|you|they|and|or)\\s+express\\b",
+   "\\bexpressed\\b",
+   "\\bexpression",
+   "\\bamerican\\s+express\\b",
+   "\\bexpressive\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "fastapi": {
+  "label": "FastAPI",
+  "category": "framework",
+  "patterns": [
+   "\\bfastapi\\b",
+   "\\bfast\\s?api\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "flask": {
+  "label": "Flask",
+  "category": "framework",
+  "patterns": [
+   "\\bflask\\b"
+  ],
+  "anti_patterns": [
+   "\\bflask\\s+of\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "flutter": {
+  "label": "Flutter",
+  "category": "platform",
+  "patterns": [
+   "\\bflutter\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "gcp": {
+  "label": "GCP",
+  "category": "infra",
+  "patterns": [
+   "\\bgcp\\b",
+   "\\bgoogle\\s+cloud\\b",
+   "\\bgke\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "go": {
+  "label": "Go",
+  "category": "language",
+  "patterns": [
+   "\\bgolang\\b",
+   "(?-i:\\bGo\\b)",
+   "(?-i:\\bGO\\b)"
+  ],
+  "anti_patterns": [
+   "\\bgo\\s+(?:to|for|from|with|beyond|deep|live|public|remote|big|fast|further|above|back|through|over|into|out|up|down|ahead|straight|hand|the|a|an|and|or|it|we|you|they|home|global|all[- ]in|full[- ]time|on|off|by|get|make|build|see|read|check|apply|visit|learn|find|head|team|company|forward|far|wrong|right|well|beyond)\\b",
+   "\\b(?:on|to|let'?s|lets|ready|want|wants|wanted|willing|able|going|gonna|will|can|could|should|would|must|need|needs|needed|here|there|where|when|how|why|who|that|this|the)\\s+go\\b",
+   "\\bgo[- ]?to\\b",
+   "\\bon[- ]the[- ]go\\b",
+   "\\bgo[- ]getter\\b",
+   "\\bgo[- ]live\\b",
+   "\\bgo\\s*\\)",
+   "\\bgo!",
+   "\\bgo\\.\\s*[A-Z]",
+   "\\bgo\\s+public\\b",
+   "\\bpokemon\\s+go\\b",
+   "\\bgo\\s+where\\b",
+   "\\bmust[- ]go\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "gpt": {
+  "label": "GPT / OpenAI",
+  "category": "ai",
+  "patterns": [
+   "\\bgpt[\\s-]?\\d?\\b",
+   "\\bchatgpt\\b",
+   "\\bopenai\\b",
+   "\\bclaude\\b(?=.{0,60}\\b(?:api|anthropic|llm|model|ai)\\b)",
+   "\\banthropic\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "graphql": {
+  "label": "GraphQL",
+  "category": "practice",
+  "patterns": [
+   "\\bgraphql\\b",
+   "\\bapollo\\s+(?:client|server|graph)\\b",
+   "\\bhasura\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "grpc": {
+  "label": "gRPC",
+  "category": "practice",
+  "patterns": [
+   "\\bgrpc\\b",
+   "\\bprotocol\\s+buffers\\b",
+   "\\bprotobuf\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "hadoop": {
+  "label": "Hadoop/Hive",
+  "category": "data",
+  "patterns": [
+   "\\bhadoop\\b",
+   "\\bhive\\b(?=.{0,60}\\b(?:hadoop|data|query|warehouse|spark)\\b)",
+   "\\bmapreduce\\b",
+   "\\bhdfs\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "haskell": {
+  "label": "Haskell",
+  "category": "language",
+  "patterns": [
+   "\\bhaskell\\b",
+   "\\bghc\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "htmx": {
+  "label": "htmx",
+  "category": "frontend",
+  "patterns": [
+   "\\bhtmx\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "ios": {
+  "label": "iOS",
+  "category": "platform",
+  "patterns": [
+   "(?-i:\\biOS\\b)",
+   "(?-i:\\bIOS\\b)",
+   "\\bxcode\\b",
+   "\\bapple\\s+platform"
+  ],
+  "anti_patterns": [
+   "\\bcisco\\s+ios\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "java": {
+  "label": "Java",
+  "category": "language",
+  "patterns": [
+   "\\bjava\\b(?!\\s*script)",
+   "\\bjvm\\b",
+   "\\bj2ee\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "javascript": {
+  "label": "JavaScript",
+  "category": "language",
+  "patterns": [
+   "\\bjavascript\\b",
+   "\\bjs\\b(?!on)",
+   "\\bes6\\b",
+   "\\becmascript\\b"
+  ],
+  "anti_patterns": [
+   "\\bnode\\.?js\\b",
+   "\\breact\\.?js\\b",
+   "\\bvue\\.?js\\b",
+   "\\bnext\\.?js\\b",
+   "\\bnest\\.?js\\b",
+   "\\bthree\\.?js\\b",
+   "\\bd3\\.?js\\b",
+   "\\bember\\.?js\\b",
+   "\\bbackbone\\.?js\\b",
+   "\\bjs\\w"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "jquery": {
+  "label": "jQuery",
+  "category": "frontend",
+  "patterns": [
+   "\\bjquery\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "julia": {
+  "label": "Julia",
+  "category": "language",
+  "patterns": [
+   "(?-i:\\bJulia\\b)",
+   "\\bjulialang\\b"
+  ],
+  "anti_patterns": [
+   "\\bjulia\\s+[A-Z]",
+   "\\bjulia'",
+   "\\b(?:by|from|contact|ask|email|reach)\\s+julia\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "kafka": {
+  "label": "Kafka",
+  "category": "data",
+  "patterns": [
+   "\\bkafka\\b",
+   "\\bconfluent\\b",
+   "\\bredpanda\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "kotlin": {
+  "label": "Kotlin",
+  "category": "language",
+  "patterns": [
+   "\\bkotlin\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "kubernetes": {
+  "label": "Kubernetes",
+  "category": "infra",
+  "patterns": [
+   "\\bkubernetes\\b",
+   "\\bk8s\\b",
+   "\\bk3s\\b",
+   "\\bhelm\\s+chart",
+   "\\beks\\b",
+   "\\baks\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "lambda": {
+  "label": "AWS Lambda",
+  "category": "infra",
+  "patterns": [
+   "\\baws\\s+lambda\\b",
+   "\\blambda\\s+functions?\\b",
+   "(?-i:\\bLambda\\b)"
+  ],
+  "anti_patterns": [
+   "\\blambda\\s+school\\b",
+   "\\blambda\\s+(?:calculus|expressions?|labs?|syntax|the\\s+ultimate)\\b",
+   "\\blambda\\s+is\\s+a\\b",
+   "\\blambda\\s+(?:gpu|cloud|cluster)\\b",
+   "\\b(?:java|scala|python|kotlin|c\\+\\+|c#|ruby|js|javascript)\\s*\\d*\\s+lambdas?\\b",
+   "\\bhalf[\\s-]life\\b"
+  ],
+  "ambiguous": true,
+  "requires": "\\baws\\b|\\bamazon\\b|\\bserverless\\b|\\bdynamo\\s?db\\b|\\bapi\\s*gateway\\b|\\bcloudformation\\b|\\bkinesis\\b|\\bstep\\s+functions?\\b|\\bsqs\\b|\\bsns\\b|\\bcloudwatch\\b|\\bfargate\\b|\\bcdk\\b|\\bec2\\b|\\bs3\\b|\\bglue\\b|\\bathena\\b|\\becs\\b|\\beks\\b|\\bcognito\\b|\\bappsync\\b|\\brds\\b|\\bterraform\\b|\\bsam\\b|\\bedge\\s+function"
+ },
+ "langchain": {
+  "label": "LangChain",
+  "category": "ai",
+  "patterns": [
+   "\\blang\\s?chain\\b",
+   "\\bllama\\s?index\\b",
+   "\\bllamaindex\\b",
+   "\\bhaystack\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "laravel": {
+  "label": "Laravel",
+  "category": "framework",
+  "patterns": [
+   "\\blaravel\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "linux": {
+  "label": "Linux",
+  "category": "infra",
+  "patterns": [
+   "\\blinux\\b",
+   "\\bubuntu\\b",
+   "\\bdebian\\b",
+   "\\bnixos\\b",
+   "\\bunix\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "llm": {
+  "label": "LLMs",
+  "category": "ai",
+  "patterns": [
+   "\\bllms?\\b",
+   "\\blarge\\s+language\\s+models?\\b",
+   "\\bfoundation\\s+models?\\b",
+   "\\bfine[\\s-]?tun\\w*\\s+(?:llm|model|gpt)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "lua": {
+  "label": "Lua",
+  "category": "language",
+  "patterns": [
+   "\\blua\\b",
+   "\\bluajit\\b"
+  ],
+  "anti_patterns": [
+   "\\bkuala\\s+lumpur\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "machine_learning": {
+  "label": "Machine Learning",
+  "category": "ai",
+  "patterns": [
+   "\\bmachine\\s+learning\\b",
+   "\\bml\\b(?!\\s*/?\\s*(?:s\\b))",
+   "\\bml\\s+(?:engineer|model|pipeline|ops|infra|platform)\\b"
+  ],
+  "anti_patterns": [
+   "\\b\\d+\\s*ml\\b",
+   "\\bhtml\\b",
+   "\\bxml\\b",
+   "\\byaml\\b",
+   "\\btoml\\b",
+   "\\bml\\s+of\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "microservices": {
+  "label": "Microservices",
+  "category": "practice",
+  "patterns": [
+   "\\bmicro[\\s-]?services?\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "mlops": {
+  "label": "MLOps",
+  "category": "ai",
+  "patterns": [
+   "\\bml\\s?ops\\b",
+   "\\bmlflow\\b",
+   "\\bkubeflow\\b",
+   "\\bweights\\s*&\\s*biases\\b",
+   "\\bfeature\\s+store\\b",
+   "\\bmodel\\s+serving\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "mongodb": {
+  "label": "MongoDB",
+  "category": "data",
+  "patterns": [
+   "\\bmongo(?:db)?\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "mysql": {
+  "label": "MySQL",
+  "category": "data",
+  "patterns": [
+   "\\bmysql\\b",
+   "\\bmariadb\\b",
+   "\\bpercona\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "nestjs": {
+  "label": "NestJS",
+  "category": "framework",
+  "patterns": [
+   "\\bnest\\.?js\\b",
+   "\\bnestjs\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "nextjs": {
+  "label": "Next.js",
+  "category": "frontend",
+  "patterns": [
+   "\\bnext\\.js\\b",
+   "\\bnextjs\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "nim": {
+  "label": "Nim",
+  "category": "language",
+  "patterns": [
+   "(?-i:\\bNim\\b)",
+   "\\bnimlang\\b"
+  ],
+  "anti_patterns": [
+   "\\bnimble\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "nlp": {
+  "label": "NLP",
+  "category": "ai",
+  "patterns": [
+   "\\bnlp\\b",
+   "\\bnatural\\s+language\\s+processing\\b",
+   "\\bspacy\\b",
+   "\\bnltk\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "nodejs": {
+  "label": "Node.js",
+  "category": "framework",
+  "patterns": [
+   "\\bnode\\.?js\\b",
+   "\\bnodejs\\b",
+   "\\bdeno\\b",
+   "\\bbun\\b(?=.{0,40}\\b(?:js|runtime|node)\\b)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "nomad": {
+  "label": "Nomad (HashiCorp)",
+  "category": "infra",
+  "patterns": [
+   "(?-i:\\bNomad\\b)",
+   "\\bhashicorp\\s+nomad\\b"
+  ],
+  "anti_patterns": [
+   "\\bdigital\\s+nomads?\\b",
+   "\\bnomads?\\b\\s*(?:friendly|life|lifestyle|visa)",
+   "\\bnomadic\\b",
+   "\\bnomads\\b",
+   "\\bnomad\\s+(?:list|capital|health|lane)\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "objective_c": {
+  "label": "Objective-C",
+  "category": "language",
+  "patterns": [
+   "objective[\\s-]?c\\b",
+   "\\bobjc\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "observability": {
+  "label": "Observability",
+  "category": "practice",
+  "patterns": [
+   "\\bobservability\\b",
+   "\\bprometheus\\b",
+   "\\bgrafana\\b",
+   "\\bdatadog\\b",
+   "\\bopentelemetry\\b",
+   "\\bsentry\\b",
+   "\\bsplunk\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "perl": {
+  "label": "Perl",
+  "category": "language",
+  "patterns": [
+   "\\bperl\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "phoenix": {
+  "label": "Phoenix (Elixir)",
+  "category": "framework",
+  "patterns": [
+   "\\bphoenix\\s*(?:framework|liveview)?\\b"
+  ],
+  "anti_patterns": [
+   "\\bphoenix,?\\s*(?:az|arizona)\\b",
+   "\\bphoenix\\s+(?:metro|area|office|based|hq)\\b",
+   "\\bthe\\s+phoenix\\b",
+   "\\bphoenix\\s+project\\b",
+   "\\b(?:in|near|from|around|to|relocate\\s+to)\\s+phoenix\\b",
+   "\\bphoenix\\s*,\\s*(?:los\\s+angeles|boston|new\\s+york|chicago|denver|dallas|austin|seattle|atlanta|houston|nyc|sf|san\\s+\\w+|tucson|scottsdale|remote)\\b"
+  ],
+  "ambiguous": true,
+  "requires": "\\belixir\\b|\\bliveview\\b|\\babsinthe\\b|\\becto\\b|\\bbeam\\b|\\berlang\\b|\\bpetal\\b|\\bphoenix\\s+framework\\b|\\bexunit\\b|\\bnerves\\b|\\boban\\b"
+ },
+ "php": {
+  "label": "PHP",
+  "category": "language",
+  "patterns": [
+   "\\bphp\\b",
+   "\\bphp[578]\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "postgres": {
+  "label": "PostgreSQL",
+  "category": "data",
+  "patterns": [
+   "\\bpostgres(?:ql)?\\b",
+   "\\bpsql\\b",
+   "\\bpg\\s?bouncer\\b",
+   "\\btimescale(?:db)?\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "python": {
+  "label": "Python",
+  "category": "language",
+  "patterns": [
+   "\\bpython\\b",
+   "\\bpython[23]\\b",
+   "\\bcpython\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "pytorch": {
+  "label": "PyTorch",
+  "category": "ai",
+  "patterns": [
+   "\\bpy\\s?torch\\b",
+   "\\btorch\\b(?=.{0,40}\\b(?:model|train|neural|gpu|cuda)\\b)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "r": {
+  "label": "R",
+  "category": "language",
+  "patterns": [
+   "(?-i:(?<![\\w.])R(?![\\w.&]))",
+   "\\brstudio\\b",
+   "\\br\\s+programming\\b",
+   "\\bshiny\\s+app"
+  ],
+  "anti_patterns": [
+   "\\br\\s*&\\s*d\\b",
+   "\\br\\s*/\\s*d\\b",
+   "\\br\\.\\s*[a-z]",
+   "\\bseries\\s+r\\b",
+   "\\bpart\\s+r\\b",
+   "\\br\\s*&\\s*b\\b",
+   "\\bhr\\b",
+   "\\br\\s*\\.\\s*$"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "rag": {
+  "label": "RAG",
+  "category": "ai",
+  "patterns": [
+   "\\bretrieval[\\s-]augmented\\s+generation\\b",
+   "(?-i:\\bRAG\\b)"
+  ],
+  "anti_patterns": [
+   "\\brags?\\s+(?:to|and)\\b",
+   "\\bragged\\b",
+   "\\brag\\s?time\\b",
+   "\\bragu\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "rails": {
+  "label": "Ruby on Rails",
+  "category": "framework",
+  "patterns": [
+   "\\bruby\\s+on\\s+rails\\b",
+   "\\bror\\b",
+   "\\brails\\b"
+  ],
+  "anti_patterns": [
+   "\\bguard\\s?rails\\b",
+   "\\boff\\s+the\\s+rails\\b",
+   "\\bhand\\s?rails\\b",
+   "\\brails?\\s+against\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "react": {
+  "label": "React",
+  "category": "frontend",
+  "patterns": [
+   "(?-i:\\bReact\\b)(?!\\s+(?:to|quickly|fast|swiftly))",
+   "\\breact\\.?js\\b",
+   "\\breactjs\\b"
+  ],
+  "anti_patterns": [
+   "\\breact\\s+(?:to|quickly|fast|swiftly|well|appropriately)\\b",
+   "\\breact\\s+native\\b",
+   "\\breacting\\b",
+   "\\breaction"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "react_native": {
+  "label": "React Native",
+  "category": "platform",
+  "patterns": [
+   "\\breact\\s?native\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "redis": {
+  "label": "Redis",
+  "category": "data",
+  "patterns": [
+   "\\bredis\\b",
+   "\\bvalkey\\b",
+   "\\bmemcached\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "rest_api": {
+  "label": "REST APIs",
+  "category": "practice",
+  "patterns": [
+   "\\brest(?:ful)?\\s+(?:api|service|web\\s+service|endpoint)",
+   "\\brestful\\b",
+   "\\bopenapi\\b",
+   "\\bswagger\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "ruby": {
+  "label": "Ruby",
+  "category": "language",
+  "patterns": [
+   "\\bruby\\b",
+   "\\bmri\\s+ruby\\b",
+   "\\bjruby\\b"
+  ],
+  "anti_patterns": [
+   "\\bruby\\s+(?:tuesday|receptionist|red|slipper|ring|anniversary)\\b",
+   "\\bruby\\s+on\\s+rails\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "rust": {
+  "label": "Rust",
+  "category": "language",
+  "patterns": [
+   "(?-i:\\bRust\\b)",
+   "\\brustlang\\b",
+   "\\brust\\s+lang\\b"
+  ],
+  "anti_patterns": [
+   "\\brust\\s+belt\\b",
+   "\\brusty\\b",
+   "\\brust\\s+(?:on|of)\\s+(?:the\\s+)?(?:metal|steel|iron)\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "scala": {
+  "label": "Scala",
+  "category": "language",
+  "patterns": [
+   "\\bscala\\b"
+  ],
+  "anti_patterns": [
+   "\\bla\\s+scala\\b",
+   "\\bscalab",
+   "\\bscalar\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "security": {
+  "label": "Security / crypto-eng",
+  "category": "other",
+  "patterns": [
+   "\\bcyber\\s?security\\b",
+   "\\binfosec\\b",
+   "\\bappsec\\b",
+   "\\bpen(?:etration)?\\s+test",
+   "\\bcryptograph",
+   "\\bsoc\\s?2\\b",
+   "\\bzero\\s+trust\\b",
+   "\\bthreat\\s+model"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "serverless": {
+  "label": "Serverless",
+  "category": "infra",
+  "patterns": [
+   "\\bserverless\\b",
+   "\\bcloudflare\\s+workers\\b",
+   "\\bvercel\\b",
+   "\\bfly\\.io\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "snowflake": {
+  "label": "Snowflake",
+  "category": "data",
+  "patterns": [
+   "\\bsnowflake\\b"
+  ],
+  "anti_patterns": [
+   "\\bsnowflakes\\b",
+   "\\bspecial\\s+snowflake\\b"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "solidity": {
+  "label": "Solidity",
+  "category": "language",
+  "patterns": [
+   "\\bsolidity\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "spark": {
+  "label": "Apache Spark",
+  "category": "data",
+  "patterns": [
+   "\\bapache\\s+spark\\b",
+   "\\bpyspark\\b",
+   "\\bspark\\s+(?:streaming|sql|jobs?|cluster)\\b",
+   "(?-i:\\bSpark\\b)"
+  ],
+  "anti_patterns": [
+   "\\bspark(?:s|ed|ing|le|ling)\\b",
+   "\\bspark\\s+(?:joy|of|your|our|the\\s+imagination|capital|notion|interest|conversation|debate|change|innovation|curiosity)\\b",
+   "\\bsparkpost\\b",
+   "\\bsparkfun\\b",
+   "\\bspark\\s+plug\\b",
+   "\\bignite\\s+the\\s+spark\\b",
+   "\\bspark\\s*java\\b",
+   "\\bsparkjava\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "spring": {
+  "label": "Spring",
+  "category": "framework",
+  "patterns": [
+   "\\bspring\\s*boot\\b",
+   "\\bspring\\s*(?:mvc|framework|cloud|data|batch|security)\\b",
+   "(?-i:\\bSpring\\b)"
+  ],
+  "anti_patterns": [
+   "\\bspring\\s+(?:20\\d\\d|semester|break|summer|of\\s+20|term|season|cleaning|forward)\\b",
+   "\\b(?:this|next|last|in|by|since|during|until)\\s+spring\\b",
+   "\\bspring[\\s-]?loaded\\b",
+   "\\bhot\\s+spring",
+   "\\bsilver\\s+spring\\b",
+   "\\bspring,\\s*(?:tx|texas)\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "sql": {
+  "label": "SQL",
+  "category": "language",
+  "patterns": [
+   "\\bsql\\b",
+   "\\bt-sql\\b",
+   "\\bpl/sql\\b",
+   "\\bplpgsql\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "svelte": {
+  "label": "Svelte",
+  "category": "frontend",
+  "patterns": [
+   "\\bsvelte(?:kit)?\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "swift": {
+  "label": "Swift",
+  "category": "language",
+  "patterns": [
+   "(?-i:\\bSwift\\b)",
+   "\\bswiftui\\b"
+  ],
+  "anti_patterns": [
+   "\\bswift\\s+(?:payment|transfer|message|code|network|bic|wire|banking|action|response|delivery|execution|iteration|decision|feedback|growth|progress|and\\s+decisive)\\b",
+   "\\btaylor\\s+swift\\b",
+   "\\bswift(?:ly)\\b",
+   "\\b(?:fast|quick|move)\\s+and\\s+swift\\b",
+   "\\bswift\\s*/\\s*sepa\\b",
+   "\\biso\\s*20022\\b.{0,20}swift\\b"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "tailwind": {
+  "label": "Tailwind CSS",
+  "category": "frontend",
+  "patterns": [
+   "\\btailwind(?:css)?\\b"
+  ],
+  "anti_patterns": [
+   "\\btailwinds?\\s+(?:of|from|in\\s+the\\s+market|behind)\\b",
+   "\\bmarket\\s+tailwind"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "tensorflow": {
+  "label": "TensorFlow",
+  "category": "ai",
+  "patterns": [
+   "\\btensor\\s?flow\\b",
+   "\\bkeras\\b",
+   "\\bjax\\b(?=.{0,60}\\b(?:ml|model|train|neural|numpy|research)\\b)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "terraform": {
+  "label": "Terraform",
+  "category": "infra",
+  "patterns": [
+   "\\bterraform\\b",
+   "\\bopentofu\\b",
+   "\\bpulumi\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "transformers": {
+  "label": "Transformers",
+  "category": "ai",
+  "patterns": [
+   "\\bhugging\\s?face\\b",
+   "\\btransformers?\\b(?=.{0,80}\\b(?:model|nlp|bert|llm|pytorch|tensorflow|hugging|attention|architecture)\\b)",
+   "\\bbert\\b",
+   "\\battention\\s+is\\s+all\\b"
+  ],
+  "anti_patterns": [
+   "\\btransformers?\\s+(?:movie|toy|robot)\\b",
+   "\\bpower\\s+transformer"
+  ],
+  "ambiguous": false,
+  "requires": null
+ },
+ "typescript": {
+  "label": "TypeScript",
+  "category": "language",
+  "patterns": [
+   "\\btypescript\\b",
+   "(?-i:\\bTS\\b)\\s*/\\s*(?-i:\\bJS\\b)",
+   "\\bts/js\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "unity": {
+  "label": "Unity / Unreal",
+  "category": "platform",
+  "patterns": [
+   "\\bunity\\s?3?d?\\b(?=.{0,80}\\b(?:game|engine|vr|ar|3d|unreal|c#)\\b)",
+   "\\bunreal\\s+engine\\b",
+   "\\bunity\\s+engine\\b",
+   "\\bgodot\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "vector_db": {
+  "label": "Vector databases",
+  "category": "ai",
+  "patterns": [
+   "\\bvector\\s+(?:database|db|store|search|index)",
+   "\\bpinecone\\b",
+   "\\bweaviate\\b",
+   "\\bqdrant\\b",
+   "\\bmilvus\\b",
+   "\\bpgvector\\b",
+   "\\bchroma\\s?db\\b",
+   "\\bfaiss\\b",
+   "\\bembeddings?\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "vue": {
+  "label": "Vue",
+  "category": "frontend",
+  "patterns": [
+   "\\bvue\\.?js\\b",
+   "\\bvuejs\\b",
+   "(?-i:\\bVue\\b)",
+   "\\bnuxt\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "wasm": {
+  "label": "WebAssembly",
+  "category": "platform",
+  "patterns": [
+   "\\bweb\\s?assembly\\b",
+   "\\bwasm\\b",
+   "\\bwasi\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "web3": {
+  "label": "Web3 / crypto",
+  "category": "other",
+  "patterns": [
+   "\\bweb\\s?3\\b",
+   "\\bcrypto(?:currency)?\\b",
+   "\\bnft\\b",
+   "\\bdao\\b(?=.{0,40}\\b(?:crypto|web3|token|governance)\\b)"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "webpack": {
+  "label": "Webpack/Vite",
+  "category": "frontend",
+  "patterns": [
+   "\\bwebpack\\b",
+   "\\bvite\\b(?!\\s*ss)",
+   "\\besbuild\\b",
+   "\\brollup\\.?js\\b"
+  ],
+  "anti_patterns": [],
+  "ambiguous": false,
+  "requires": null
+ },
+ "zig": {
+  "label": "Zig",
+  "category": "language",
+  "patterns": [
+   "(?-i:\\bZig\\b)",
+   "\\bziglang\\b"
+  ],
+  "anti_patterns": [
+   "\\bzig[\\s-]?zag"
+  ],
+  "ambiguous": true,
+  "requires": null
+ },
+ "_roles": {
+  "backend": {
+   "label": "Backend",
+   "patterns": [
+    "\\bback[\\s-]?end\\b",
+    "\\bserver[\\s-]?side\\b",
+    "\\bapi\\s+engineer\\b",
+    "\\bdistributed\\s+systems?\\s+engineer\\b",
+    "\\bsystems?\\s+engineer\\b",
+    "\\bplatform\\s+engineer\\b(?=.{0,40}\\bapi\\b)"
+   ]
+  },
+  "data-engineering": {
+   "label": "Data engineering",
+   "patterns": [
+    "\\bdata\\s+engineer",
+    "\\banalytics\\s+engineer",
+    "\\bdata\\s+platform\\b",
+    "\\betl\\s+(?:engineer|developer)\\b",
+    "\\bdata\\s+infrastructure\\b",
+    "\\bbig\\s+data\\s+engineer"
+   ]
+  },
+  "data-science": {
+   "label": "Data science / analytics",
+   "patterns": [
+    "\\bdata\\s+scien",
+    "\\bdata\\s+analyst\\b",
+    "\\bbusiness\\s+intelligence\\b",
+    "\\bbi\\s+analyst\\b",
+    "\\bquantitative\\s+(?:analyst|research)",
+    "\\bquant\\s+(?:developer|researcher|trader)\\b",
+    "\\bstatistician\\b"
+   ]
+  },
+  "design-ux": {
+   "label": "Design / UX",
+   "patterns": [
+    "\\b(?:ux|ui)\\s*/?\\s*(?:ui|ux)?\\s*designer\\b",
+    "\\bproduct\\s+designer\\b",
+    "\\bux\\s+researcher\\b",
+    "\\bgraphic\\s+designer\\b",
+    "\\bdesign\\s+(?:lead|manager|director)\\b",
+    "\\bvisual\\s+designer\\b",
+    "\\bbrand\\s+designer\\b",
+    "\\bdesigner\\b"
+   ]
+  },
+  "developer-relations": {
+   "label": "Developer relations",
+   "patterns": [
+    "\\bdev(?:eloper)?\\s+(?:relations|advocate|evangelist|experience)\\b",
+    "\\bdevrel\\b",
+    "\\bcommunity\\s+manager\\b",
+    "\\btechnical\\s+writer\\b",
+    "\\bdocumentation\\s+engineer\\b"
+   ]
+  },
+  "devops-sre-platform": {
+   "label": "DevOps / SRE / Platform",
+   "patterns": [
+    "\\bdev\\s?ops\\b",
+    "\\bsre\\b",
+    "\\bsite\\s+reliability\\b",
+    "\\bplatform\\s+engineer",
+    "\\binfrastructure\\s+engineer",
+    "\\bcloud\\s+(?:engineer|architect)\\b",
+    "\\bsystems?\\s+administrator\\b",
+    "\\bsysadmin\\b",
+    "\\bkubernetes\\s+engineer\\b",
+    "\\bproduction\\s+engineer\\b",
+    "\\bbuild\\s+engineer\\b",
+    "\\brelease\\s+engineer\\b"
+   ]
+  },
+  "embedded-hardware": {
+   "label": "Embedded / hardware",
+   "patterns": [
+    "\\bembedded\\s+(?:engineer|software|systems|developer)\\b",
+    "\\bfirmware\\s+engineer\\b",
+    "\\bhardware\\s+engineer\\b",
+    "\\belectrical\\s+engineer\\b",
+    "\\brobotics\\s+engineer\\b",
+    "\\bfpga\\s+engineer\\b",
+    "\\basic\\s+(?:engineer|design)\\b",
+    "\\bmechanical\\s+engineer\\b"
+   ]
+  },
+  "engineering-management": {
+   "label": "Engineering management",
+   "patterns": [
+    "\\bengineering\\s+manager\\b",
+    "\\bem\\b(?=.{0,20}\\bengineering\\b)",
+    "\\bhead\\s+of\\s+engineering\\b",
+    "\\bvp\\s+(?:of\\s+)?engineering\\b",
+    "\\bdirector\\s+of\\s+engineering\\b",
+    "\\bcto\\b",
+    "\\btech(?:nical)?\\s+lead\\b",
+    "\\bteam\\s+lead(?:er)?\\b",
+    "\\bengineering\\s+director\\b",
+    "\\bchief\\s+technology\\s+officer\\b"
+   ]
+  },
+  "frontend": {
+   "label": "Frontend",
+   "patterns": [
+    "\\bfront[\\s-]?end\\b",
+    "\\bui\\s+engineer\\b",
+    "\\bweb\\s+developer\\b",
+    "\\bjavascript\\s+(?:engineer|developer)\\b",
+    "\\breact\\s+(?:engineer|developer)\\b"
+   ]
+  },
+  "fullstack": {
+   "label": "Full-stack",
+   "patterns": [
+    "\\bfull[\\s-]?stack\\b",
+    "\\bgeneralist\\s+engineer\\b",
+    "\\bproduct\\s+engineer\\b"
+   ]
+  },
+  "ml-ai": {
+   "label": "ML / AI",
+   "patterns": [
+    "\\bml\\s+engineer",
+    "\\bmachine\\s+learning\\s+(?:engineer|scientist|researcher)",
+    "\\bai\\s+engineer",
+    "\\bai\\s+researcher\\b",
+    "\\bapplied\\s+scientist\\b",
+    "\\bdeep\\s+learning\\s+engineer",
+    "\\bnlp\\s+engineer",
+    "\\bcomputer\\s+vision\\s+engineer",
+    "\\bresearch\\s+engineer\\b",
+    "\\bai\\s+(?:scientist|developer)\\b",
+    "\\bllm\\s+engineer\\b",
+    "\\bmlops\\s+engineer\\b"
+   ]
+  },
+  "mobile": {
+   "label": "Mobile",
+   "patterns": [
+    "\\bmobile\\s+(?:engineer|developer|dev)\\b",
+    "\\bios\\s+(?:engineer|developer|dev)\\b",
+    "\\bandroid\\s+(?:engineer|developer|dev)\\b",
+    "\\breact\\s?native\\s+(?:engineer|developer)\\b",
+    "\\bflutter\\s+(?:engineer|developer)\\b"
+   ]
+  },
+  "product-management": {
+   "label": "Product management",
+   "patterns": [
+    "\\bproduct\\s+manager\\b",
+    "\\bproduct\\s+management\\b",
+    "\\btechnical\\s+product\\s+manager\\b",
+    "\\bproduct\\s+owner\\b",
+    "\\bhead\\s+of\\s+product\\b",
+    "\\bvp\\s+(?:of\\s+)?product\\b",
+    "\\bprogram\\s+manager\\b",
+    "\\bproject\\s+manager\\b"
+   ]
+  },
+  "qa-test": {
+   "label": "QA / Test",
+   "patterns": [
+    "\\bqa\\s+(?:engineer|analyst|lead|automation)\\b",
+    "\\bquality\\s+assurance\\b",
+    "\\btest\\s+(?:engineer|automation)\\b",
+    "\\bsdet\\b",
+    "\\bautomation\\s+(?:engineer|tester)\\b"
+   ]
+  },
+  "research": {
+   "label": "Research",
+   "patterns": [
+    "\\bresearch\\s+scientist\\b",
+    "\\bresearcher\\b",
+    "\\bpost[\\s-]?doc\\b",
+    "\\bphd\\s+(?:position|candidate)\\b",
+    "\\bscientist\\b(?!.{0,20}\\bdata\\b)"
+   ]
+  },
+  "sales-marketing": {
+   "label": "Sales / Marketing / GTM",
+   "patterns": [
+    "\\b(?:account\\s+executive|sales\\s+(?:engineer|rep|manager|lead|director)|sdr\\b|bdr\\b)",
+    "\\bmarketing\\s+(?:manager|lead|director|associate|specialist)\\b",
+    "\\bgrowth\\s+(?:lead|manager|marketer)\\b",
+    "\\bhead\\s+of\\s+(?:sales|marketing|growth|revenue)\\b",
+    "\\bdemand\\s+gen",
+    "\\bcontent\\s+marketer\\b",
+    "\\bvp\\s+(?:of\\s+)?(?:sales|marketing)\\b"
+   ]
+  },
+  "security": {
+   "label": "Security",
+   "patterns": [
+    "\\bsecurity\\s+(?:engineer|analyst|architect|researcher|specialist)\\b",
+    "\\bappsec\\b",
+    "\\binfosec\\b",
+    "\\bciso\\b",
+    "\\bpenetration\\s+tester\\b",
+    "\\bcryptograph\\w*\\s+engineer\\b",
+    "\\bsecurity\\s+operations\\b"
+   ]
+  },
+  "support": {
+   "label": "Support / SE / Ops",
+   "patterns": [
+    "\\b(?:technical|customer)\\s+support\\b",
+    "\\bsupport\\s+engineer\\b",
+    "\\bsolutions?\\s+(?:engineer|architect)\\b",
+    "\\bcustomer\\s+success\\b",
+    "\\bimplementation\\s+(?:engineer|consultant)\\b",
+    "\\bforward[\\s-]deployed\\b",
+    "\\boperations\\s+(?:manager|associate|analyst)\\b"
+   ]
+  },
+  "other-engineering": {
+   "label": "Other engineering",
+   "patterns": [
+    "\\b(?:software\\s+engineer\\w*|software\\s+developer|swe|engineer(?:ing|s)?|developer|programmer|hacker|coder|technical\\s+staff)\\b"
+   ]
+  },
+  "other": {
+   "label": "Other / unclassified",
+   "patterns": []
+  }
+ },
+ "_qualifier_pattern": "\\b(?:programming|languages?|tech\\s*stack|technolog\\w*|stack|codebase|written\\s+in|built\\s+(?:with|in|on)|we\\s+use|using|use\\s+of|experience\\s+(?:with|in)|proficien\\w*|expertise|familiar\\s+with|our\\s+(?:stack|tools|toolchain)|micro\\s?services?|framework|libraries|library|backend|back[\\s-]end|frontend|front[\\s-]end|full[\\s-]?stack|knowledge\\s+of|skills?\\s*:|stack\\s*:|tech\\s*:|tools?\\s*:|bonus|nice\\s+to\\s+have|plus\\s+points|must\\s+have|working\\s+(?:with|knowledge))\\b",
+ "_notes": [
+  "Every pattern is a Python regex applied case-INSENSITIVELY unless a part of it is wrapped in (?-i:...), which makes that part case-sensitive.",
+  "A technology is accepted when one of its `patterns` matches and no `anti_patterns` match overlaps that match.",
+  "A technology flagged `ambiguous` additionally needs, within 90 characters of the surviving match, either an accepted unambiguous technology or a word from _qualifier_pattern.",
+  "A technology with a non-null `requires` additionally needs that regex to match within 250 characters of the match ('Phoenix' only counts near Elixir; 'Lambda' only near AWS).",
+  "Matching runs on the cleaned posting text with URLs stripped, so a technology name that only appears inside a link does not count.",
+  "A posting counts at most once per technology however many times it names it."
+ ]
+}
