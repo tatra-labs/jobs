@@ -1,0 +1,681 @@
+{
+  "title": "US Remote Work & Tech Hiring, 2011-2026",
+  "subtitle": "94,548 tech job postings, Census work-from-home rates and BLS employment",
+  "description": "How remote work spread across the United States and what it did to technology hiring: every 'Ask HN: Who is hiring?' posting since 2011 parsed into structured fields, set against Census ACS work-from-home rates and BLS employment and wages. See README.md for the full data dictionary and the caveats that matter.",
+  "id": "YOUR_KAGGLE_USERNAME/us-remote-work-and-tech-hiring-2011-2026",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0"
+    }
+  ],
+  "keywords": [
+    "business",
+    "economics",
+    "employment",
+    "computer science",
+    "internet"
+  ],
+  "resources": [
+    {
+      "path": "states.csv",
+      "description": "US state / DC / Puerto Rico lookup: FIPS code, postal abbreviation, name.",
+      "schema": {
+        "fields": [
+          {
+            "name": "state_fips"
+          },
+          {
+            "name": "state_abbr"
+          },
+          {
+            "name": "state_name"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_technologies.csv",
+      "description": "The 112 technologies tracked in the Hacker News corpus, with the category used to group them and how many regex patterns define each one.",
+      "schema": {
+        "fields": [
+          {
+            "name": "technology_id"
+          },
+          {
+            "name": "label"
+          },
+          {
+            "name": "category"
+          },
+          {
+            "name": "n_match_patterns"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_roles.csv",
+      "description": "The role taxonomy applied to each posting. A posting can carry several roles.",
+      "schema": {
+        "fields": [
+          {
+            "name": "role_id"
+          },
+          {
+            "name": "label"
+          },
+          {
+            "name": "n_match_patterns"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_postings.csv",
+      "description": "One row per job posting: every top-level comment on a monthly 'Ask HN: Who is hiring?' thread, 2011-04 to 2026-09, parsed into fields. remote_class is remote | hybrid | onsite | unknown. excerpt is the first 160 characters of the cleaned posting text; hn_url resolves to the full original comment.",
+      "schema": {
+        "fields": [
+          {
+            "name": "posting_id"
+          },
+          {
+            "name": "thread_month"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "month"
+          },
+          {
+            "name": "author"
+          },
+          {
+            "name": "company"
+          },
+          {
+            "name": "role_title"
+          },
+          {
+            "name": "location_raw"
+          },
+          {
+            "name": "remote_class"
+          },
+          {
+            "name": "remote_scope"
+          },
+          {
+            "name": "seniority"
+          },
+          {
+            "name": "salary_min"
+          },
+          {
+            "name": "salary_max"
+          },
+          {
+            "name": "salary_currency"
+          },
+          {
+            "name": "visa_sponsorship"
+          },
+          {
+            "name": "relocation"
+          },
+          {
+            "name": "n_technologies"
+          },
+          {
+            "name": "n_roles"
+          },
+          {
+            "name": "excerpt"
+          },
+          {
+            "name": "hn_url"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_posting_technologies.csv",
+      "description": "Bridge table: which technologies each posting mentions. Join to hn_technologies. A posting appears once per technology it names.",
+      "schema": {
+        "fields": [
+          {
+            "name": "posting_id"
+          },
+          {
+            "name": "thread_month"
+          },
+          {
+            "name": "technology_id"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_posting_roles.csv",
+      "description": "Bridge table: which roles each posting advertises. Join to hn_roles.",
+      "schema": {
+        "fields": [
+          {
+            "name": "posting_id"
+          },
+          {
+            "name": "thread_month"
+          },
+          {
+            "name": "role_id"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_monthly_summary.csv",
+      "description": "Monthly totals and work-arrangement mix. Shares are of that month's postings. One row per thread; all 186 months are present with no gaps.",
+      "schema": {
+        "fields": [
+          {
+            "name": "thread_month"
+          },
+          {
+            "name": "year"
+          },
+          {
+            "name": "month"
+          },
+          {
+            "name": "n_postings"
+          },
+          {
+            "name": "n_remote"
+          },
+          {
+            "name": "n_hybrid"
+          },
+          {
+            "name": "n_onsite"
+          },
+          {
+            "name": "n_unknown"
+          },
+          {
+            "name": "share_remote"
+          },
+          {
+            "name": "share_hybrid"
+          },
+          {
+            "name": "share_onsite"
+          },
+          {
+            "name": "share_unknown"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_yearly_summary.csv",
+      "description": "Yearly rollup of the same figures. is_partial_year = 1 for 2011 (starts in April) and 2026 (9 of 12 months); never compare those against a full year without saying so.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "is_partial_year"
+          },
+          {
+            "name": "n_postings"
+          },
+          {
+            "name": "n_remote"
+          },
+          {
+            "name": "n_hybrid"
+          },
+          {
+            "name": "n_onsite"
+          },
+          {
+            "name": "n_unknown"
+          },
+          {
+            "name": "share_remote"
+          },
+          {
+            "name": "share_hybrid"
+          },
+          {
+            "name": "share_onsite"
+          },
+          {
+            "name": "share_unknown"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_technology_monthly.csv",
+      "description": "How often each technology is named, by month. share_of_postings is n_postings divided by all postings in that month - a technology's share of job ads, which is not its share of jobs. Rows with a zero count are omitted.",
+      "schema": {
+        "fields": [
+          {
+            "name": "thread_month"
+          },
+          {
+            "name": "technology_id"
+          },
+          {
+            "name": "n_postings"
+          },
+          {
+            "name": "share_of_postings"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_technology_yearly.csv",
+      "description": "How often each technology is named, by year. share_of_postings is n_postings divided by all postings in that year - a technology's share of job ads, which is not its share of jobs. Rows with a zero count are omitted.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "technology_id"
+          },
+          {
+            "name": "n_postings"
+          },
+          {
+            "name": "share_of_postings"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_role_monthly.csv",
+      "description": "How often each role appears, by month, on the same basis as the technology tables.",
+      "schema": {
+        "fields": [
+          {
+            "name": "thread_month"
+          },
+          {
+            "name": "role_id"
+          },
+          {
+            "name": "n_postings"
+          },
+          {
+            "name": "share_of_postings"
+          }
+        ]
+      }
+    },
+    {
+      "path": "hn_role_yearly.csv",
+      "description": "How often each role appears, by year, on the same basis as the technology tables.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "role_id"
+          },
+          {
+            "name": "n_postings"
+          },
+          {
+            "name": "share_of_postings"
+          }
+        ]
+      }
+    },
+    {
+      "path": "acs_commute_state.csv",
+      "description": "Census ACS 1-year table B08006, workers 16+ by means of transportation to work, by state. measure='wfh' is the worked-from-home line - the remote work series. margin_of_error is the published 90% MOE. There is NO 2020: the Census Bureau never released a standard 1-year file for it, so no row exists rather than a zero or an estimate.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "geo_code"
+          },
+          {
+            "name": "geo_name"
+          },
+          {
+            "name": "geo_fips"
+          },
+          {
+            "name": "geo_kind"
+          },
+          {
+            "name": "measure"
+          },
+          {
+            "name": "estimate"
+          },
+          {
+            "name": "margin_of_error"
+          },
+          {
+            "name": "share_of_workers"
+          }
+        ]
+      }
+    },
+    {
+      "path": "acs_wfh_by_occupation.csv",
+      "description": "Census ACS 1-year table B08124: worked-from-home crossed with broad occupation group, by state. This is the table that shows which kinds of work actually went remote. Same 2020 gap as acs_commute_state.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "geo_code"
+          },
+          {
+            "name": "geo_name"
+          },
+          {
+            "name": "occupation_group"
+          },
+          {
+            "name": "occupation_label"
+          },
+          {
+            "name": "total_workers"
+          },
+          {
+            "name": "total_moe"
+          },
+          {
+            "name": "wfh_workers"
+          },
+          {
+            "name": "wfh_moe"
+          },
+          {
+            "name": "wfh_share"
+          },
+          {
+            "name": "wfh_share_moe"
+          }
+        ]
+      }
+    },
+    {
+      "path": "indeed_remote_monthly.csv",
+      "description": "Indeed Hiring Lab monthly trackers, 2019-01 to 2026-07. remote_share_postings = percent of job postings whose text mentions remote or hybrid work (employer demand). remote_share_searches = percent of job searches using a remote term (worker demand). ai_share_postings = percent of postings mentioning generative-AI terms. Values are PERCENTAGES (2.48 means 2.48%), not proportions.",
+      "schema": {
+        "fields": [
+          {
+            "name": "month"
+          },
+          {
+            "name": "country_code"
+          },
+          {
+            "name": "country_name"
+          },
+          {
+            "name": "remote_share_postings"
+          },
+          {
+            "name": "remote_share_searches"
+          },
+          {
+            "name": "ai_share_postings"
+          }
+        ]
+      }
+    },
+    {
+      "path": "indeed_remote_by_sector_monthly.csv",
+      "description": "The same remote-share-of-postings measure, split by Indeed's 53 occupational sectors. is_tech_sector marks the 10 technical sectors - software development, IT systems, IT infrastructure and support, data and analytics, scientific R&D, and the five engineering and architecture sectors; for software work specifically filter to sector_code IN ('techsoftware','techinfo','techhelp','math'). Percentages, not proportions. Not every sector is published for every country - the US has 32 of the 53 - and a series simply stops where Indeed stopped it.",
+      "schema": {
+        "fields": [
+          {
+            "name": "month"
+          },
+          {
+            "name": "country_code"
+          },
+          {
+            "name": "country_name"
+          },
+          {
+            "name": "sector_code"
+          },
+          {
+            "name": "sector_label"
+          },
+          {
+            "name": "is_tech_sector"
+          },
+          {
+            "name": "remote_share_postings"
+          }
+        ]
+      }
+    },
+    {
+      "path": "indeed_sectors.csv",
+      "description": "Indeed's occupational sector codes with readable labels, and the last month each one has US data for.",
+      "schema": {
+        "fields": [
+          {
+            "name": "sector_code"
+          },
+          {
+            "name": "sector_label"
+          },
+          {
+            "name": "is_tech_sector"
+          },
+          {
+            "name": "last_month_us"
+          }
+        ]
+      }
+    },
+    {
+      "path": "oews_state_occupation.csv",
+      "description": "BLS Occupational Employment and Wage Statistics by state and occupation, May 2018 to May 2024. occ_group is total (00-0000), major (XX-0000) or detailed - summing across levels double-counts. The flag_* columns carry the BLS marker for that cell: '**' estimate not released, '*' wage not available, '#' wage AT OR ABOVE the top code (a censored HIGH value, not missing - $208,000/yr for 2018-2021, $239,200/yr from 2022), '~' below 0.005%. A flagged cell has a NULL value; treating '#' as missing biases high-wage occupations downward.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "area_fips"
+          },
+          {
+            "name": "area_title"
+          },
+          {
+            "name": "state_abbr"
+          },
+          {
+            "name": "area_kind"
+          },
+          {
+            "name": "occ_code"
+          },
+          {
+            "name": "occ_title"
+          },
+          {
+            "name": "occ_group"
+          },
+          {
+            "name": "total_employment"
+          },
+          {
+            "name": "jobs_per_1000"
+          },
+          {
+            "name": "location_quotient"
+          },
+          {
+            "name": "annual_median_wage"
+          },
+          {
+            "name": "annual_mean_wage"
+          },
+          {
+            "name": "hourly_median_wage"
+          },
+          {
+            "name": "flag_employment"
+          },
+          {
+            "name": "flag_annual_median"
+          },
+          {
+            "name": "flag_annual_mean"
+          },
+          {
+            "name": "flag_hourly_median"
+          }
+        ]
+      }
+    },
+    {
+      "path": "oews_national_occupation.csv",
+      "description": "The same OEWS measures for the United States as a whole, including the minor and broad SOC levels the state files omit. Use it as the denominator for national shares and location quotients.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "occ_code"
+          },
+          {
+            "name": "occ_title"
+          },
+          {
+            "name": "occ_group"
+          },
+          {
+            "name": "total_employment"
+          },
+          {
+            "name": "annual_median_wage"
+          },
+          {
+            "name": "annual_mean_wage"
+          },
+          {
+            "name": "hourly_median_wage"
+          },
+          {
+            "name": "flag_employment"
+          },
+          {
+            "name": "flag_annual_median"
+          },
+          {
+            "name": "flag_annual_mean"
+          },
+          {
+            "name": "flag_hourly_median"
+          }
+        ]
+      }
+    },
+    {
+      "path": "oews_metro_occupation.csv",
+      "description": "OEWS for 219 metropolitan statistical areas: the largest 200 by 2024 employment, plus every metro that is top-25 nationally for any detailed computer/mathematical occupation, so tech hubs are never cut. is_it_occupation marks the 39 detailed 15-xxxx occupations. Coordinates come from the Census gazetteer.",
+      "schema": {
+        "fields": [
+          {
+            "name": "year"
+          },
+          {
+            "name": "cbsa_code"
+          },
+          {
+            "name": "metro_title"
+          },
+          {
+            "name": "component_states"
+          },
+          {
+            "name": "latitude"
+          },
+          {
+            "name": "longitude"
+          },
+          {
+            "name": "occ_code"
+          },
+          {
+            "name": "occ_title"
+          },
+          {
+            "name": "occ_group"
+          },
+          {
+            "name": "is_it_occupation"
+          },
+          {
+            "name": "total_employment"
+          },
+          {
+            "name": "annual_median_wage"
+          },
+          {
+            "name": "annual_mean_wage"
+          },
+          {
+            "name": "flag_annual_median"
+          },
+          {
+            "name": "flag_annual_mean"
+          }
+        ]
+      }
+    },
+    {
+      "path": "oews_occupations.csv",
+      "description": "Every occupation code appearing in the OEWS files, with the years BLS published it. IMPORTANT: codes are not continuous across the SOC 2010 to SOC 2018 change. Software Developers is 15-1132 + 15-1133 in 2018, the combined 15-1256 in 2019-2020, and 15-1252 from 2021. Use years_published before drawing any multi-year line.",
+      "schema": {
+        "fields": [
+          {
+            "name": "occ_code"
+          },
+          {
+            "name": "occ_title"
+          },
+          {
+            "name": "occ_group"
+          },
+          {
+            "name": "soc_major_group"
+          },
+          {
+            "name": "years_published"
+          },
+          {
+            "name": "is_it_occupation"
+          }
+        ]
+      }
+    },
+    {
+      "path": "us_remote_work.sqlite",
+      "description": "Every CSV in this dataset as one typed, indexed SQLite database, plus four convenience views."
+    }
+  ]
+}
