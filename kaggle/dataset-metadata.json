@@ -2,7 +2,7 @@
   "title": "US Remote Work & Tech Hiring, 2011-2026",
   "subtitle": "94,548 tech job postings, Census work-from-home rates and BLS employment",
   "description": "How remote work spread across the United States and what it did to technology hiring: every 'Ask HN: Who is hiring?' posting since 2011 parsed into structured fields, set against Census ACS work-from-home rates and BLS employment and wages. See README.md for the full data dictionary and the caveats that matter.",
-  "id": "YOUR_KAGGLE_USERNAME/us-remote-work-and-tech-hiring-2011-2026",
+  "id": "tatralabs/us-remote-work-and-tech-hiring-2011-2026",
   "licenses": [
     {
       "name": "CC-BY-4.0"

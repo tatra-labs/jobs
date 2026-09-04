@@ -23,6 +23,7 @@ Design rules, which the data dictionary repeats for users:
 
 import csv
 import json
+import os
 import sqlite3
 
 from common import DATA, ROOT, STATES, read_json
@@ -632,6 +633,9 @@ def build_sqlite():
 
 
 SLUG = "us-remote-work-and-tech-hiring-2011-2026"
+# Kaggle owner for dataset-metadata.json. Override with KAGGLE_OWNER to publish
+# under a different account; a rebuild must not silently reset a published id.
+OWNER = os.environ.get("KAGGLE_OWNER", "tatralabs")
 
 
 def build_metadata():
@@ -647,7 +651,7 @@ def build_metadata():
             "work-from-home rates and BLS employment and wages. See README.md for "
             "the full data dictionary and the caveats that matter."
         ),
-        "id": f"YOUR_KAGGLE_USERNAME/{slug}",
+        "id": f"{OWNER}/{slug}",
         "licenses": [{"name": "CC-BY-4.0"}],
         # Kaggle validates keywords against its own tag vocabulary and rejects the
         # upload on an unknown one, so this list stays to common, known-good tags.
@@ -776,7 +780,6 @@ def build_readme(db_path):
         "pip install kaggle",
         "# 1. put your kaggle.json API token in ~/.kaggle/ (chmod 600)",
         "# 2. set your username in kaggle/dataset-metadata.json:",
-        "#      \"id\": \"<your-username>/" + slug + "\"",
         "kaggle datasets create -p kaggle/",
         "```",
         "",
